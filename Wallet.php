@@ -5,24 +5,26 @@ namespace Strategy;
 // TODO: Implement Wallet Class
 class Wallet implements PaymentStrategy{
 
-    private $amount;
+    private float $amount;
 
     public function __construct($amount)
     {
-        $this->amount = $amount;
+        $this->amount = (float)$amount;
     }
 
     public function pay($price)
     {
+        $price = (float)$price;
         if ($price <= $this->amount){
-            echo "Paying $price using Wallet";
+            $this->amount = $this->amount - $price;
+            echo "Paying {$price} using Wallet";
         }else{
-           echo "Wallet: Insufficient inventory!";
+            echo "Wallet: Insufficient inventory!";
         }
     }
 
     public function addAmount($amount){
-        $this->amount += $amount;
+        $this->amount += (float)$amount;
     }
 
     public function getAmount(){

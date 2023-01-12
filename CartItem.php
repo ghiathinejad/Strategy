@@ -11,7 +11,7 @@ class CartItem
     public function __construct($productName, $price)
     {
         $this->productName = $productName;
-        $this->price = $price;
+        $this->price = (float)$price;
     }
 
     public function setProductName($productName)
@@ -27,7 +27,7 @@ class CartItem
 
     public function setPrice($price)
     {
-        $this->price = $price;
+        $this->price = (float)$price;
         return $this;
     }
 
